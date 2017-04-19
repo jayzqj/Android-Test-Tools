@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center_vertical"
+       android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/sak_box_bag"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Test Tools"
+                android:textColor="#000"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Tips:切换服务器会清空登录态"
+                android:textColor="#cccccc"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务器:"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+
+                <EditText
+                    android:id="@+id/server"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:digits="0123456789"
+                    android:gravity="center_vertical"
+                    android:hint="服务器地址"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#c0c0c0"
+                    android:textSize="12dp"/>
+
+                <ImageButton
+                    android:id="@+id/imagebut"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    />
+
+                <TextView
+                    android:id="@+id/ok"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/sak_corner_but_bag"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="#000"
+                    />
+
+            </LinearLayout>
+
+
+            <com.jay.amateur.floatview.MyGridView
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:horizontalSpacing="1dp"
+                android:numColumns="2"
+                android:padding="2dp"
+                android:scrollbars="none"
+                android:verticalSpacing="1dp"
+                tools:listitem="@layout/list_item"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</merge>

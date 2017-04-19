@@ -1,2 +1,4 @@
 # Android-Test-Tools
-Android 测试小工具，APP不用频繁打包即可修改服务器地址,无需修改原有代码，可方便测试任何Activity
+通过APP内的悬浮小工具，可随意修改APP服务器的地址
+新开发的Activity无需入扣依赖，即可直接测试
+

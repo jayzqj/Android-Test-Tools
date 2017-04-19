@@ -8,3 +8,17 @@
 
 ![pic1](https://github.com/zenqingjie/Android-Test-Tools/blob/master/app/image/2.png)
 
+引入
+
+Android Studio
+将Android-Test-Tools引入
+
+dependencies {
+    compile project(':FloatToolsLib')
+}
+
+也可以直接
+dependencies {
+   compile 'com.jay.amateur:testTools:1.0.0'
+}
+

@@ -20,6 +20,6 @@ dependencies {
 
 也可以直接
 dependencies {
-   compile 'com.jay.amateur:testTools:1.0.0'
+   compile 'com.jay.amateur:testTools:1.0.2'
 }
 

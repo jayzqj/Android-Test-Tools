@@ -23,3 +23,12 @@ dependencies {
    compile 'com.jay.amateur:testTools:1.0.2'
 }
 
+
+使用：
+
+在程序的入口处，如果是debug开发，调用初始化方法
+我这里是在程序的Application的onCreate()方法中调用：
+  //初始化测试工具
+  if (BuildConfig.ENABLE_DEBUG_LOG) {
+   FloatToolsUtil.init(this);
+  }

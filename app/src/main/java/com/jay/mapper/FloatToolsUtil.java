@@ -15,7 +15,7 @@ import java.util.List;
  * Created by zengqingjie on 17/4/18.
  */
 
-public class FloatToolsManager {
+public class FloatToolsUtil {
     public static synchronized void init(final Application application) {
         //配置服务器地址
         List<String> serverData = new ArrayList<>();

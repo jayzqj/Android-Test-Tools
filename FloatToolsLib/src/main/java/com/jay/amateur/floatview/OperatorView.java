@@ -30,8 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 public class OperatorView extends LinearLayout {
     private GridView container;
     private LayoutInflater mInflater;
@@ -43,7 +41,6 @@ public class OperatorView extends LinearLayout {
     private PopupWindow popup;
     private ListView listView;
     private List<ActionBean> data = new ArrayList<>();
-
 
 
     public void setServerData(List<String> serverData) {
@@ -121,6 +118,7 @@ public class OperatorView extends LinearLayout {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 if (intent.resolveActivity(context.getPackageManager()) != null) {
                     popup.dismiss();//关闭窗口
+                    OperatorView.this.setVisibility(GONE);
                     context.startActivity(intent);
                 } else {
                     Toast.makeText(context, "对应的Activity不存在", Toast.LENGTH_SHORT).show();
@@ -146,7 +144,6 @@ public class OperatorView extends LinearLayout {
         popup.setOutsideTouchable(true);//点击PopupWindow以外的区域自动关闭该窗口
         popup.showAsDropDown(mServer, 0, 0);//显示在edit控件的下面0,0代表偏移量
     }
-
 
 
     //适配器
@@ -201,11 +198,11 @@ public class OperatorView extends LinearLayout {
 
         class HolderView {
             TextView text;
-           // ImageButton delete;
+            // ImageButton delete;
 
             public HolderView(View view) {
                 text = (TextView) view.findViewById(R.id.textView);
-               // delete = (ImageButton) view.findViewById(R.id.delete);
+                // delete = (ImageButton) view.findViewById(R.id.delete);
             }
         }
     }

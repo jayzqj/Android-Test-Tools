@@ -32,3 +32,40 @@ dependencies {
   if (BuildConfig.ENABLE_DEBUG_LOG) {
    FloatToolsUtil.init(this);
   }
+
+
+public class FloatToolsUtil {
+    public static synchronized void init(final Application application) {
+        //配置服务器地址
+        List<String> serverData = new ArrayList<>();
+        serverData.add("http://XXX.XXX.XXX.XXX/XXX/");
+        serverData.add("http://XXX.XXX.XXX.XXX/XXX/");
+        //配置功能测试项
+        List<ActionBean> data = new ArrayList<>();
+        data.add(new ActionBean("二维码扫描1", ActivityTest1.class.getCanonicalName()));
+        data.add(new ActionBean("二维码扫描2", ActivityTest2.class.getCanonicalName()));
+        data.add(new ActionBean("二维码扫描3", ActivityTest3.class.getCanonicalName()));
+        data.add(new ActionBean("二维码扫描4", ActivityTest4.class.getCanonicalName()));
+        data.add(new ActionBean("二维码扫描5", ActivityTest5.class.getCanonicalName()));
+        data.add(new ActionBean("二维码扫描6", ActivityTest6.class.getCanonicalName()));
+        Config config = new Config.Build(serverData, data).build();
+        //初始化工具数据
+        TestTools.init(application, config);
+        //设置当前服务器地址
+        TestTools.updateServerUrl(Configs.BASE_URL);
+        //设置地址切换回调
+        TestTools.setListener(new OperatorViewCallBack() {
+            @Override
+            public void switchServer(String url) {
+                //Toast.makeText(application, url, Toast.LENGTH_SHORT).show();
+                if (!Configs.BASE_URL.toLowerCase().equals(url.toLowerCase())) {
+                    //更新当前服务器地址
+                    TestTools.updateServerUrl(url);
+                    Configs.BASE_URL = url;
+                    //切换不同服务器地址后，执行用户登出操作
+                    User.userLogout();
+                }
+            }
+        });
+    }
+}

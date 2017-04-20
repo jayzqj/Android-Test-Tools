@@ -1,11 +1,9 @@
 package com.jay.amateur.floatview;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -13,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -22,9 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.jay.amteur.floatview.R;
+import com.jay.amateur.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,26 +102,12 @@ public class OperatorView extends LinearLayout {
                 mServer.setSelection(editable.length());
             }
         });
-        container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ActionBean bean = (ActionBean) adapterView.getItemAtPosition(i);
-                if (TextUtils.isEmpty(bean.className)) {
-                    return;
-                }
-                Intent intent = new Intent();
-                intent.setClassName(context.getApplicationContext(), bean.className);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (intent.resolveActivity(context.getPackageManager()) != null) {
-                    popup.dismiss();//关闭窗口
-                    OperatorView.this.setVisibility(GONE);
-                    context.startActivity(intent);
-                } else {
-                    Toast.makeText(context, "对应的Activity不存在", Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
+    }
+
+    public void popupDismiss() {
+        if (popup != null)
+            popup.dismiss();//关闭窗口
     }
 
     /**

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Build;
 
-import com.jay.amteur.floatview.R;
 
 
 

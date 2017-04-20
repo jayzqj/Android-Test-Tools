@@ -22,7 +22,7 @@ public class Check {
      * @return 验证成功返回true，验证失败返回false
      */
     public static boolean checkURL(String url) {
-        String regex = "(https?://(w{3}\\.)?)?\\w+\\.\\w+(\\.[a-zA-Z]+)*(:\\d{1,5})?(/\\w*)*(\\??(.+=.*)?(&.+=.*)?)?";
+        String regex = "^(?:https?://)?[\\w]{1,}(?:\\.?[\\w]{1,})+[\\w\\-_/?&=#%:]*$";
         return Pattern.matches(regex, url);
     }
 

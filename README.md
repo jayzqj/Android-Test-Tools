@@ -25,9 +25,10 @@ dependencies {
 
 
 使用：
+在程序的入口处，如果是debug开发，调用初始化方法 
 
-在程序的入口处，如果是debug开发，调用初始化方法
 我这里是在程序的Application的onCreate()方法中调用：
+
   //初始化测试工具
   if (BuildConfig.ENABLE_DEBUG_LOG) {
    FloatToolsUtil.init(this);
@@ -35,19 +36,33 @@ dependencies {
 
 
 public class FloatToolsUtil {
+
     public static synchronized void init(final Application application) {
+    
         //配置服务器地址
+        
         List<String> serverData = new ArrayList<>();
+        
         serverData.add("http://XXX.XXX.XXX.XXX/XXX/");
+        
         serverData.add("http://XXX.XXX.XXX.XXX/XXX/");
+        
         //配置功能测试项
+        
         List<ActionBean> data = new ArrayList<>();
+        
         data.add(new ActionBean("二维码扫描1", ActivityTest1.class.getCanonicalName()));
+        
         data.add(new ActionBean("二维码扫描2", ActivityTest2.class.getCanonicalName()));
+        
         data.add(new ActionBean("二维码扫描3", ActivityTest3.class.getCanonicalName()));
+        
         data.add(new ActionBean("二维码扫描4", ActivityTest4.class.getCanonicalName()));
+        
         data.add(new ActionBean("二维码扫描5", ActivityTest5.class.getCanonicalName()));
+        
         data.add(new ActionBean("二维码扫描6", ActivityTest6.class.getCanonicalName()));
+        
         Config config = new Config.Build(serverData, data).build();
         //初始化工具数据
         TestTools.init(application, config);

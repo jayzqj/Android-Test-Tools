@@ -14,6 +14,7 @@ import com.jay.amateur.Check;
 import com.jay.amateur.Config;
 import com.jay.amateur.OperatorViewCallBack;
 import com.jay.amateur.R;
+import com.jay.amateur.pref.PreUtil;
 
 
 public class ToolsCoverView extends FrameLayout {
@@ -38,11 +39,6 @@ public class ToolsCoverView extends FrameLayout {
         mCallBack = callBack;
     }
 
-    public void updateServerUrl(String url) {
-        if (mEditText != null)
-            mEditText.setText(url);
-
-    }
 
     private void init() {
 
@@ -55,6 +51,7 @@ public class ToolsCoverView extends FrameLayout {
         mOperatorView.setServerData(mConfig.getServerData());
 
         mFloatView = (FloatView) findViewById(R.id.floatView);
+        mEditText.setText(PreUtil.getInst(getContext()).getKeyString("url", ""));
 
         mFloatView.setOnClickListener(new OnClickListener() {
             @Override
@@ -91,8 +88,10 @@ public class ToolsCoverView extends FrameLayout {
                 if (Check.checkURL(url)) {
                     if (mCallBack != null)
                         mCallBack.switchServer(url);
+                    PreUtil.getInst(getContext()).setKey("url", url);
+
                 } else {
-                    Toast.makeText(getContext().getApplicationContext(), "URL不合法", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext().getApplicationContext(), "URL不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 mOperatorView.setVisibility(GONE);

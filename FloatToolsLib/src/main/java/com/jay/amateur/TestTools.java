@@ -2,9 +2,11 @@ package com.jay.amateur;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Build;
+import android.text.TextUtils;
 
-
+import com.jay.amateur.pref.PreUtil;
 
 
 public class TestTools {
@@ -51,12 +53,14 @@ public class TestTools {
         }
         sManager.setListener(callBack);
     }
-    public static synchronized void updateServerUrl(String url) {
-        if (sManager == null) {
-            throw new RuntimeException("you should first call method:init()!");
-        }
-        sManager.updateServerUrl(url);
-    }
+
+//    public static synchronized void updateServerUrl(String url) {
+//        if (sManager == null) {
+//            throw new RuntimeException("you should first call method:init()!");
+//        }
+//        sManager.updateServerUrl(url);
+//    }
+
     public static void resume(Activity activity) {
         if (sManager == null) {
             throw new RuntimeException("init first!");
@@ -76,4 +80,12 @@ public class TestTools {
 //        detch(activity);
 //    }
 
+    public static String setURL(Context context, String url) {
+        String cacheUrl = PreUtil.getInst(context).getKeyString("url", null);
+        if (TextUtils.isEmpty(cacheUrl)) {
+            PreUtil.getInst(context).setKey("url", url);
+            cacheUrl=url;
+        }
+        return cacheUrl;
+    }
 }

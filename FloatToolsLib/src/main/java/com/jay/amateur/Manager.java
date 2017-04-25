@@ -21,9 +21,7 @@ class Manager {
         if (callBack == null) return;
         mCoverView.setListener(callBack);
     }
-    public  synchronized void updateServerUrl(String url) {
-        mCoverView.updateServerUrl(url);
-    }
+
 
     void detach(Activity activity) {
         ((ViewGroup) activity.getWindow().getDecorView()).removeView(mCoverView);

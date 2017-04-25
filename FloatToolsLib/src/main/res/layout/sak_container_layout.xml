@@ -6,6 +6,12 @@
     >
 
 
+    <com.jay.amateur.floatview.FloatView
+        android:id="@+id/floatView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/cog"/>
 
     <com.jay.amateur.floatview.OperatorView
         android:id="@+id/operatorView"
@@ -14,11 +20,4 @@
         android:background="#88888888"
         android:visibility="gone"
         tools:visibility="visible"/>
-
-    <com.jay.amateur.floatview.FloatView
-        android:id="@+id/floatView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/cog"/>
 </merge>

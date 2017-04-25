@@ -40,23 +40,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Tips:切换服务器会清空登录态"
-                android:textColor="#cccccc"
+                android:text="Tips:切换服务器后请杀掉APP重新启动\n(配置信息是在APP启动时拉去的)"
+                android:textColor="#222"
                 android:textSize="12dp"/>
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/sak_corner_but_bag"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#000"
+                />
 
             <LinearLayout
 
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="80dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="服务器:"
-                    android:textColor="#000"
-                    android:textSize="15dp"/>
 
                 <EditText
                     android:id="@+id/server"
@@ -68,11 +72,9 @@
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="服务器地址"
-                    android:imeOptions="actionNext"
-                    android:singleLine="true"
                     android:textColor="#000"
                     android:textColorHint="#c0c0c0"
-                    android:textSize="12dp"/>
+                    android:textSize="16dp"/>
 
                 <ImageButton
                     android:id="@+id/imagebut"
@@ -81,16 +83,6 @@
                     android:background="@android:drawable/btn_dropdown"
                     />
 
-                <TextView
-                    android:id="@+id/ok"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/sak_corner_but_bag"
-                    android:gravity="center"
-                    android:text="确定"
-                    android:textColor="#000"
-                    />
 
             </LinearLayout>
 

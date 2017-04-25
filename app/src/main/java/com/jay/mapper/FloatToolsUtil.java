@@ -32,11 +32,12 @@ public class FloatToolsUtil {
         data.add(new ActionBean("订单页面", MainActivity.class.getCanonicalName()));
         Config config = new Config.Build(serverData, data).build();
         TestTools.init(application, config);
+        TestTools.setURL(application,"");
         TestTools.setListener(new OperatorViewCallBack() {
             @Override
             public void switchServer(String url) {
                 Toast.makeText(application, url, Toast.LENGTH_SHORT).show();
-                TestTools.updateServerUrl(url);
+
             }
         });
     }

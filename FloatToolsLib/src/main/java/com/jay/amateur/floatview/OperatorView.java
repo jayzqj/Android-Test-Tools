@@ -99,7 +99,7 @@ public class OperatorView extends LinearLayout {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mServer.setSelection(editable.length());
+                //mServer.setSelection(editable.length());
             }
         });
 
